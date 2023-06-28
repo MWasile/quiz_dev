@@ -12,6 +12,7 @@
     "api": "json-server --watch ./api/db.json --port 3001"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.18.2",
     "@react-navigation/native": "^6.1.7",
     "json-server": "^0.17.3",
     "native-base": "^3.4.28",
