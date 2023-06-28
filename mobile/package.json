@@ -8,9 +8,11 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "postinstall": "cd ios && pod install && cd .."
+    "postinstall": "cd ios && pod install && cd ..",
+    "api": "json-server --watch ./api/db.json --port 3001"
   },
   "dependencies": {
+    "json-server": "^0.17.3",
     "native-base": "^3.4.28",
     "react": "18.2.0",
     "react-native": "0.72.0",
