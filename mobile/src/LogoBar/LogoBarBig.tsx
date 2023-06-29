@@ -1,6 +1,6 @@
 import {Box, Text} from "native-base";
 
-function LogoBar() {
+function LogoBarBig() {
     return (
         <Box
             bg={'#4459A9'}
@@ -18,4 +18,4 @@ function LogoBar() {
     );
 }
 
-export default LogoBar;
+export default LogoBarBig;

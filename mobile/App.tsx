@@ -6,6 +6,7 @@ import CreateNewAccount from "./src/components/CreateNewAccount/CreateNewAccount
 import Login from "./src/components/Login/Login";
 import Dashboard from "./src/components/Dashboard/Dashboard";
 import RegisterControl from "./src/components/RegisterControl/RegisterControl";
+import DashboardNavigation from "./src/components/Dashboard/DashboardNavigation";
 
 
 
@@ -41,7 +42,7 @@ function App(): JSX.Element {
                     />
                     <Stack.Screen
                         name={'Dashboard'}
-                        component={Dashboard}
+                        component={DashboardNavigation}
                         options={{contentStyle: {backgroundColor: "transparent"}}}
                     />
                 </Stack.Navigator>
