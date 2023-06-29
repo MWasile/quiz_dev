@@ -4,6 +4,7 @@ import ActivityChart from "../ActivityChart/ActivityChart";
 
 
 function Dashboard() {
+    // TODO: Props for navigation
     return (
         <VStack
             flex={1}>
