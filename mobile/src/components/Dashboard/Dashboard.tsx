@@ -5,9 +5,12 @@ import ActivityChart from "../ActivityChart/ActivityChart";
 
 function Dashboard() {
     return (
-        <VStack flex={1}>
+        <VStack
+            flex={1}>
             <LogoBarSmall/>
-            <ScrollView flex={1}>
+            <ScrollView flex={1}
+                        horizontal={false}
+            >
                 <VStack>
                     <ActivityChart/>
                     <Text>Dashboard</Text>

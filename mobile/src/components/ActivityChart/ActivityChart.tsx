@@ -1,8 +1,9 @@
 import {ScrollView} from "native-base";
 import {ContributionGraph} from "react-native-chart-kit";
 import {getMonthLabel} from "../../helpers/chart";
-import {useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState} from "react";
 import {apiCall} from "../../helpers/api";
+
 
 const chartConfig = {
     backgroundGradientFrom: "#1E2923",
@@ -54,6 +55,7 @@ function ActivityChart() {
     };
 
     // https://github.com/indiespirit/react-native-chart-kit/issues/468
+    // TODO: No documentation on how to use this, read the source code
     const handleToolTip: any = {}
 
     return (
@@ -73,6 +75,7 @@ function ActivityChart() {
                 chartConfig={chartConfig}
                 getMonthLabel={getMonthLabel}
                 tooltipDataAttrs={handleToolTip}
+                // onDayPress={handleDayPress}
             />
         </ScrollView>
     );
