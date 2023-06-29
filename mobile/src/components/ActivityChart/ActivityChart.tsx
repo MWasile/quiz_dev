@@ -11,7 +11,7 @@ const chartConfig = {
     backgroundGradientFromOpacity: 0,
     backgroundGradientTo: "#08130D",
     backgroundGradientToOpacity: 0,
-    color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+    color: (opacity = 1) => `rgba(26, 106, 152, ${opacity})`,
     strokeWidth: 0,
     barPercentage: 0.5,
     useShadowColorFromDataset: false
@@ -75,6 +75,16 @@ function ActivityChart() {
     // https://github.com/indiespirit/react-native-chart-kit/issues/468
     // TODO: No documentation on how to use this, read the source code
     const handleToolTip: any = {}
+    const normalLabels = {
+        marginLeft: -25,
+        marginTop: -10,
+        marginBottom: -4
+    };
+    const hiddenLabels = {
+        marginLeft: -25,
+        marginTop: -50,
+        marginBottom: -4
+    }
 
     return (
         <Box>
@@ -89,11 +99,7 @@ function ActivityChart() {
                 showsHorizontalScrollIndicator={false}
             >
                 <ContributionGraph
-                    style={{
-                        marginLeft: -25,
-                        marginTop: -10,
-                        marginBottom: -4
-                    }}
+                    style={alertInfo ? hiddenLabels : normalLabels}
                     showOutOfRangeDays={false}
                     showMonthLabels={true}
                     values={chartData}
