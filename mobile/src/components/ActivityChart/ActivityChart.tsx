@@ -1,8 +1,9 @@
-import {ScrollView} from "native-base";
+import {ScrollView, Box} from "native-base";
 import {ContributionGraph} from "react-native-chart-kit";
 import {getMonthLabel} from "../../helpers/chart";
-import React, { useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {apiCall} from "../../helpers/api";
+import ChartInfoAlert from "./ChartInfoAlert";
 
 
 const chartConfig = {
@@ -21,10 +22,17 @@ interface ChartData {
     count: number;
 }
 
+export interface AlertInfo {
+    data: string;
+    count: number;
+    render: boolean;
+}
+
 function ActivityChart() {
     const scrollViewRef = useRef<typeof ScrollView>(null);
     const [chartData, setChartData] = useState<ChartData[]>([]);
     const quarterOffset = [0, 240, 375, 787];
+    const [alertInfo, setAlertInfo] = useState<AlertInfo | undefined>(undefined);
 
     useEffect(() => {
         (async () => {
@@ -33,6 +41,16 @@ function ActivityChart() {
         scrollToCurrentQuarter();
     }, []);
 
+
+    function handleDayPress(value: ChartData) {
+        if (value.count === 0) return;
+
+        setAlertInfo({
+            data: value.date,
+            count: value.count,
+            render: true
+        });
+    }
 
     async function getChartData() {
         // TODO: abort controller
@@ -59,25 +77,37 @@ function ActivityChart() {
     const handleToolTip: any = {}
 
     return (
-        <ScrollView
-            ref={scrollViewRef}
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-        >
-            <ContributionGraph
-                showOutOfRangeDays={false}
-                showMonthLabels={true}
-                values={chartData}
-                endDate={new Date("2023-12-31")}
-                numDays={366}
-                width={1190}
-                height={200}
-                chartConfig={chartConfig}
-                getMonthLabel={getMonthLabel}
-                tooltipDataAttrs={handleToolTip}
-                // onDayPress={handleDayPress}
-            />
-        </ScrollView>
+        <Box>
+            {
+                alertInfo && alertInfo.render && (
+                    <ChartInfoAlert data={alertInfo?.data} count={alertInfo?.count} setAlertInfo={setAlertInfo}/>
+                )
+            }
+            <ScrollView
+                ref={scrollViewRef}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+            >
+                <ContributionGraph
+                    style={{
+                        marginLeft: -25,
+                        marginTop: -10,
+                        marginBottom: -4
+                    }}
+                    showOutOfRangeDays={false}
+                    showMonthLabels={true}
+                    values={chartData}
+                    endDate={new Date("2023-12-31")}
+                    numDays={366}
+                    width={1190}
+                    height={200}
+                    chartConfig={chartConfig}
+                    getMonthLabel={getMonthLabel}
+                    tooltipDataAttrs={handleToolTip}
+                    onDayPress={handleDayPress}
+                />
+            </ScrollView>
+        </Box>
     );
 }
 
