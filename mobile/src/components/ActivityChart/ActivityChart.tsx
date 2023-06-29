@@ -2,11 +2,7 @@ import {ScrollView} from "native-base";
 import {ContributionGraph} from "react-native-chart-kit";
 import {getMonthLabel} from "../../helpers/chart";
 import {useEffect, useRef, useState} from "react";
-
-const commitsData = [
-    {date: "2023-06-29", count: 100},
-    {date: "2023-06-01", count: 100},
-];
+import {apiCall} from "../../helpers/api";
 
 const chartConfig = {
     backgroundGradientFrom: "#1E2923",
@@ -19,15 +15,29 @@ const chartConfig = {
     useShadowColorFromDataset: false
 };
 
+interface ChartData {
+    date: string;
+    count: number;
+}
 
 function ActivityChart() {
     const scrollViewRef = useRef<typeof ScrollView>(null);
+    const [chartData, setChartData] = useState<ChartData[]>([]);
     const quarterOffset = [0, 240, 375, 787];
 
-
     useEffect(() => {
+        (async () => {
+            await getChartData();
+        })();
         scrollToCurrentQuarter();
     }, []);
+
+
+    async function getChartData() {
+        // TODO: abort controller
+        const data = await apiCall<ChartData[]>({endpoint: 'activity'});
+        setChartData(data);
+    }
 
     function getCurrentQuarter() {
         // returns 0, 1, 2, 3
@@ -55,7 +65,7 @@ function ActivityChart() {
             <ContributionGraph
                 showOutOfRangeDays={false}
                 showMonthLabels={true}
-                values={commitsData}
+                values={chartData}
                 endDate={new Date("2023-12-31")}
                 numDays={366}
                 width={1190}
