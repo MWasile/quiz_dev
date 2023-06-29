@@ -1,12 +1,12 @@
 import {Box, Button, FormControl, Input, Text} from "native-base";
-import LogoBar from "../../LogoBar/LogoBar";
+import LogoBarBig from "../../LogoBar/LogoBarBig";
 
 function Login() {
     return (
         <Box
             flex={1}
         >
-            <LogoBar/>
+            <LogoBarBig/>
             <Text>
                 Login
             </Text>

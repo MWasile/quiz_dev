@@ -1,7 +1,7 @@
 import {SafeAreaView} from "react-native";
 import {Box, Button, FormControl, Input, Text, VStack} from "native-base";
 import {useEffect, useState} from "react";
-import LogoBar from "../../LogoBar/LogoBar";
+import LogoBarBig from "../../LogoBar/LogoBarBig";
 import {apiCall} from "../../helpers/api";
 import {RootStackParamList} from "../../../App";
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -48,7 +48,7 @@ function CreateNewAccount({ route, navigation }: NavigationProps) {
         <Box
             flex={1}
         >
-            <LogoBar/>
+            <LogoBarBig/>
             <SafeAreaView>
                 <VStack>
                     <Text> Witaj! </Text>

@@ -1,16 +1,23 @@
-import {SafeAreaView} from "react-native";
-import {Text} from "native-base";
-import {NativeStackScreenProps} from "@react-navigation/native-stack";
-import {RootStackParamList} from "../../../App";
+import {VStack, ScrollView, Text} from "native-base";
+import LogoBarSmall from "../../LogoBar/LogoBarSmall";
+import ActivityChart from "../ActivityChart/ActivityChart";
 
 
-type NavigationProps = NativeStackScreenProps<RootStackParamList, keyof RootStackParamList>;
-
-function Dashboard({navigation, route}: NavigationProps) {
+function Dashboard() {
     return (
-        <SafeAreaView>
-            <Text>GameTypeSelection</Text>
-        </SafeAreaView>
+        <VStack flex={1}>
+            <LogoBarSmall/>
+            <ScrollView flex={1}>
+                <VStack>
+                    <ActivityChart/>
+                    <Text>Dashboard</Text>
+                    <Text>Dashboard</Text>
+                    <Text>Dashboard</Text>
+                    <Text>Dashboard</Text>
+                    <Text>Dashboard</Text>
+                </VStack>
+            </ScrollView>
+        </VStack>
     );
 }
 
