@@ -26,7 +26,7 @@ function Login() {
                         width={CalcPercentageWidth(80)}
                     >
                         <Input
-                            placeholder={"Email"}
+                            placeholder="Email"
                             size={'xl'}
                         >
 
@@ -34,7 +34,7 @@ function Login() {
                         <Box>
                             <Input
                                 type={"password"}
-                                placeholder={"Password"}
+                                placeholder="Password"
                                 size={'xl'}
                             ></Input>
                             <Text

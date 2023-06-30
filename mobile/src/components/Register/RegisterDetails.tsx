@@ -19,21 +19,21 @@ function RegisterDetails() {
                         width={CalcPercentageWidth(80)}
                     >
                         <Input
-                            placeholder={"Username"}
+                            placeholder="Username"
                             size={'xl'}
                         ></Input>
                         <Input
-                            placeholder={"Email"}
-                            size={'xl'}
-                        ></Input>
-                        <Input
-                            type={"password"}
-                            placeholder={"Password"}
+                            placeholder="Email"
                             size={'xl'}
                         ></Input>
                         <Input
                             type={"password"}
-                            placeholder={"Repeat password"}
+                            placeholder="Password"
+                            size={'xl'}
+                        ></Input>
+                        <Input
+                            type={"password"}
+                            placeholder="Repeat password"
                             size={'xl'}
                         ></Input>
                         <Button

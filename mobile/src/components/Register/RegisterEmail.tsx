@@ -15,8 +15,9 @@ function RegisterEmail({navigation, route}: NavigationProps) {
     const [showError, setShowError] = useState<boolean>(false);
 
     function handleRegister() {
-        if(!('email' in formErrors)) {
+        if(!('email' in formErrors) && userEmail !== '') {
             navigation.navigate('RegisterDetails', {userEmail})
+            console.log(userEmail, 'elo');
         }
     }
 
@@ -59,13 +60,12 @@ function RegisterEmail({navigation, route}: NavigationProps) {
                         <Text
                             mt={2}
                             fontSize={12}
-                            color={"#1C1B1F"}
                         >
                             Podaj swój adres e-mail aby zarejestrować.
                         </Text>
                         <Box>
                             <Input
-                                placeholder={"Email"}
+                                placeholder="Email"
                                 size={'xl'}
                                 onChangeText={handleEmailChange}
                             ></Input>
@@ -78,7 +78,7 @@ function RegisterEmail({navigation, route}: NavigationProps) {
 
                         </Box>
                         <Button
-                            variant={"primary"}
+                            variant={"secondary"}
                             width={CalcPercentageWidth(60)}
                             alignSelf={"center"}
                             onPress={handleRegister}

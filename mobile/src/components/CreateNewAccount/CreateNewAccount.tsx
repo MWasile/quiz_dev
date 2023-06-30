@@ -27,6 +27,11 @@ import {ToggleButtonClick} from "native-base/lib/typescript/components/composite
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, keyof RootStackParamList>;
 
+interface NavParams {
+    screen: keyof RootStackParamList;
+    params?:  { userEmail: string; }
+}
+
 function CreateNewAccount({route, navigation}: NavigationProps) {
     const [randomNicknames, setRandomNicknames] = useState<string[]>([]);
     const [nickname, setNickname] = useState<string>('');
@@ -59,7 +64,9 @@ function CreateNewAccount({route, navigation}: NavigationProps) {
         // TODO: Implement
     }
 
-    function handleNavigation(screen: keyof RootStackParamList) {
+    function handleNavigation(screen: string) {
+        // TODO: Investigate TS error
+        // @ts-ignore
         navigation.navigate(screen)
     }
 
