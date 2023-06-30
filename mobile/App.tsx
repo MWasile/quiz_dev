@@ -7,6 +7,8 @@ import Login from "./src/components/Login/Login";
 import RegisterControl from "./src/components/RegisterControl/RegisterControl";
 import DashboardNavigation from "./src/components/Dashboard/DashboardNavigation";
 import {theme} from "./src/theme/theme";
+import Register from "./src/components/Register/Register";
+
 
 
 
@@ -15,6 +17,7 @@ export type RootStackParamList = {
     CreateNewAccount: undefined;
     Login: undefined;
     Dashboard: undefined;
+    Register: undefined;
 };
 
 
@@ -28,22 +31,27 @@ function App(): JSX.Element {
                     <Stack.Screen
                         name="RegisterControl"
                         component={RegisterControl}
-                        options={{contentStyle: {backgroundColor: "transparent"}}}
+                        // options={{contentStyle: {backgroundColor: "transparent"}}}
                     />
                     <Stack.Screen
                         name="CreateNewAccount"
                         component={CreateNewAccount}
-                        options={{contentStyle: {backgroundColor: "transparent"}}}
+                        // options={{contentStyle: {backgroundColor: "transparent"}}}
                     />
                     <Stack.Screen
                         name={'Login'}
                         component={Login}
-                        options={{contentStyle: {backgroundColor: "transparent"}}}
+                        // options={{contentStyle: {backgroundColor: "transparent"}}}
+                    />
+                    <Stack.Screen
+                        name={'Register'}
+                        component={Register}
+                        // options={{contentStyle: {backgroundColor: "transparent"}}}
                     />
                     <Stack.Screen
                         name={'Dashboard'}
                         component={DashboardNavigation}
-                        options={{contentStyle: {backgroundColor: "transparent"}}}
+                        // options={{contentStyle: {backgroundColor: "transparent"}}}
                     />
                 </Stack.Navigator>
             </NavigationContainer>

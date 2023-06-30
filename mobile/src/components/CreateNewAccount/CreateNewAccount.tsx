@@ -59,8 +59,8 @@ function CreateNewAccount({route, navigation}: NavigationProps) {
         // TODO: Implement
     }
 
-    function handleStartButton() {
-        navigation.navigate('Dashboard')
+    function handleNavigation(screen: keyof RootStackParamList) {
+        navigation.navigate(screen)
     }
 
     // TODO: Rotation on refresh button? Button animation?
@@ -121,23 +121,24 @@ function CreateNewAccount({route, navigation}: NavigationProps) {
                     >
                         <Button
                             variant="primary"
-                            onTouchStart={handleStartButton}
+                            onTouchStart={() => handleNavigation('Dashboard')}
                             _text={{fontSize: 18}}
                         >
                             Zacznij grać!
                         </Button>
                         <Button
                             variant="secondary"
+                            onTouchStart={() => handleNavigation('Login')}
                         >
-                            {/*TODO: Navigate*/}
                             <Text
                                 fontSize={18}
                             >Logowanie</Text>
                         </Button>
                         <Button
                             variant="secondary"
+                            onTouchStart={() => handleNavigation('Register')}
                         >
-                            {/*TODO: Navigate*/}
+
                             <Text
                                 fontSize={18}
                             >Rejestracja</Text>
