@@ -10,6 +10,7 @@ import {apiCall} from "../../helpers/api";
 import {CalcPercentageWidth} from "../../helpers/sizing";
 import {LineChart} from "react-native-chart-kit";
 import EloChart from "../EloChart/EloChart";
+import BadgesContainer from "../../Badges/BadgesContainer";
 
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, keyof RootStackParamList>;
@@ -77,11 +78,11 @@ function Dashboard({navigation, route}: NavigationProps) {
                         )}
 
 
-                        <Separator titleText='Ranking' separatorStyle={{mt: 4}}/>
+                        <Separator titleText='Badges' separatorStyle={{mt: 4}}/>
+                        <BadgesContainer
+                            badgesToDisplay={['silverThree', 'silverTwo', 'silverOne','silverThree', 'silverTwo', 'silverOne']}
+                        />
 
-                        <Text>Dashboard</Text>
-                        <Text>Dashboard</Text>
-                        <Text>Dashboard</Text>
                     </VStack>
                 </ScrollView>
             </VStack>
