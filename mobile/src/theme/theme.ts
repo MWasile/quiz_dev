@@ -1,6 +1,32 @@
 import {extendTheme} from 'native-base';
+import Surface from '../components/Surface/Surface';
 
 export const theme = extendTheme({
+    components: {
+        Input: {
+            baseStyle: (props) => ({
+                _light:{
+                    backgroundColor: 'primary.90',
+                    borderColor: 'primary.90',
+                    rounded: '5',
+                    _focus: {
+                        borderColor: 'primary.90',
+                        color: 'primary.20',
+                    },
+
+                },
+                _dark:{
+                    backgroundColor: 'primary.80',
+                    borderColor: 'primary.80',
+                    rounded: '5',
+                    _focus: {
+                        borderColor: 'primary.80',
+                        color: 'primary.20',
+                    },
+                }
+            }),
+        }
+    },
     colors: {
         primary: {
             0: '#000000',
@@ -31,32 +57,22 @@ export const theme = extendTheme({
             95: '#DDF2FF',
             99: '#F9FCFF',
             100: '#FFFFFF'
-        }
-    },
-    container: {
-        primary: {
-            light: {backgroundColor: 'primary.40'},
-            dark: {backgroundColor: 'primary.80'}
         },
-        onPrimary: {
-            light: {backgroundColor: 'primary.100'},
-            dark: {backgroundColor: 'primary.20'},
+        neutral: {
+            0: '#000000',
+            10: '#1C1B1F',
+            20: '#313033',
+            30: '#48464A',
+            40: '#605D62',
+            50: '#79767A',
+            60: '#939094',
+            70: '#ADAAAF',
+            80: '#C9C5CA',
+            90: '#E5E1E6',
+            95: '#F4EFF4',
+            99: '#FFFBFF',
+            100: '#FFFFFF'
         },
-        primaryContainer: {
-            light: {backgroundColor: 'primary.90'},
-            dark: {backgroundColor: 'primary.30'},
-        },
-        onPrimaryContainer: {
-            light: {backgroundColor: 'primary.10'},
-            dark: {backgroundColor: 'primary.90'},
-        },
-    },
-    surface: {
-        baseStyle: (props: any) => {
-            return {
-                _light: {backgroundColor: '#FFFCFF'},
-                _dark: {backgroundColor: '#212025'}
-            }
-        }
+
     }
 });
