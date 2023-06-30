@@ -62,6 +62,8 @@ export const theme = extendTheme({
                     borderColor: 'primary.90',
                     rounded: '5',
                     color: 'primary.20',
+                    placeholderTextColor: 'primary.60',
+                    textAlign: 'center',
                     _focus: {
                         borderColor: 'primary.90',
                         color: 'primary.20',
@@ -74,6 +76,11 @@ export const theme = extendTheme({
                     borderColor: 'primary.80',
                     rounded: '5',
                     color: 'primary.20',
+                    placeholderTextColor: 'primary.60',
+                    placeholder: {
+                        color: 'primary.20',
+                    },
+                    textAlign: 'center',
                     _focus: {
                         borderColor: 'primary.80',
                         color: 'primary.20',

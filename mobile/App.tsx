@@ -31,27 +31,22 @@ function App(): JSX.Element {
                     <Stack.Screen
                         name="RegisterControl"
                         component={RegisterControl}
-                        // options={{contentStyle: {backgroundColor: "transparent"}}}
                     />
                     <Stack.Screen
                         name="CreateNewAccount"
                         component={CreateNewAccount}
-                        // options={{contentStyle: {backgroundColor: "transparent"}}}
                     />
                     <Stack.Screen
                         name={'Login'}
                         component={Login}
-                        // options={{contentStyle: {backgroundColor: "transparent"}}}
                     />
                     <Stack.Screen
                         name={'Register'}
                         component={Register}
-                        // options={{contentStyle: {backgroundColor: "transparent"}}}
                     />
                     <Stack.Screen
                         name={'Dashboard'}
                         component={DashboardNavigation}
-                        // options={{contentStyle: {backgroundColor: "transparent"}}}
                     />
                 </Stack.Navigator>
             </NavigationContainer>
