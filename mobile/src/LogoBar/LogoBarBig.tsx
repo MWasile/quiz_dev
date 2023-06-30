@@ -1,11 +1,13 @@
 import {Box, Text, Image} from "native-base";
 import {ImagesAssets} from "../../assets/imageAssets";
+import SwitchThemeColor from "../components/switches/SwitchThemeColor";
+import {SafeAreaView} from "react-native";
 
-function LogoBarBig({flex}: { flex?: number }) {
+function LogoBarBig({flex}: { flex: number }) {
     return (
         <Box
             bg={'#4459A9'}
-            flex={flex || 1}
+            flex={flex}
             justifyContent={'center'}
             borderBottomLeftRadius={30}
             borderBottomRightRadius={30}

@@ -17,7 +17,7 @@ function SwitchThemeColor() {
 
     return (
         <Box
-            width={CalcPercentageWidth(20)}
+            width={CalcPercentageWidth(18)}
             backgroundColor={'#4459A9'}
             borderRadius={'full'}
             display={'flex'}

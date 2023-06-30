@@ -11,7 +11,7 @@ import {
     Image,
     Center,
     InputGroup,
-    InputRightAddon, Flex
+    InputRightAddon, Flex, useTheme, ScrollView
 } from "native-base";
 import {useEffect, useState} from "react";
 import LogoBarBig from "../../LogoBar/LogoBarBig";
@@ -20,6 +20,9 @@ import {RootStackParamList} from "../../../App";
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {CalcPercentageWidth} from "../../helpers/sizing";
 import RefreshName from "../../../assets/RefreshName.svg";
+import SwitchThemeColor from "../switches/SwitchThemeColor";
+import Surface from "../Surface/Surface";
+import {ToggleButtonClick} from "native-base/lib/typescript/components/composites/Typeahead/useTypeahead/types";
 
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, keyof RootStackParamList>;
@@ -27,7 +30,7 @@ type NavigationProps = NativeStackScreenProps<RootStackParamList, keyof RootStac
 function CreateNewAccount({route, navigation}: NavigationProps) {
     const [randomNicknames, setRandomNicknames] = useState<string[]>([]);
     const [nickname, setNickname] = useState<string>('');
-
+    const theme = useTheme();
 
     useEffect(() => {
         getRandomNicknamesAPI().catch(
@@ -62,17 +65,15 @@ function CreateNewAccount({route, navigation}: NavigationProps) {
 
     // TODO: Rotation on refresh button? Button animation?
     return (
-        <Box
-            flex={1}
-            backgroundColor={'#FFFBFF'}
-        >
-            <LogoBarBig flex={0.7}/>
-            <SafeAreaView>
-                <VStack
-                >
+        <Surface>
+            <LogoBarBig flex={0.5}/>
+            <ScrollView
+                overScrollMode={'always'}
+                flex={1}
+            >
+                <VStack>
                     <Box>
                         <Text
-                            color={'black'}
                             fontSize={24}
                             mt={18}
                             ml={8}
@@ -81,7 +82,6 @@ function CreateNewAccount({route, navigation}: NavigationProps) {
                         <Text
                             fontSize={16}
                             ml={8}
-
                         > Wpisz swoja nazwe i zacznij grać.</Text>
                         <FormControl>
                             <InputGroup
@@ -92,21 +92,16 @@ function CreateNewAccount({route, navigation}: NavigationProps) {
                                     alignSelf={'center'}
                                     width={CalcPercentageWidth(80)}
                                     size={'xl'}
-                                    backgroundColor={'#DDE1FF'}
-                                    borderColor={'#DDE1FF'}
                                     textAlign={'center'}
-                                    _focus={{
-                                        borderColor: '#DDE1FF',
-                                    }}
                                     InputRightElement={
-                                    <Box
-                                        alignSelf={'center'}
-                                        position={'absolute'}
-                                        onTouchStart={handleNicknameChange}
-                                        right={14}
-                                    >
-                                        <RefreshName width={25} height={25}/>
-                                    </Box>
+                                        <Box
+                                            alignSelf={'center'}
+                                            position={'absolute'}
+                                            onTouchStart={handleNicknameChange}
+                                            right={14}
+                                        >
+                                            <RefreshName width={25} height={25}/>
+                                        </Box>
                                     }
                                 >
                                     {nickname}
@@ -115,6 +110,7 @@ function CreateNewAccount({route, navigation}: NavigationProps) {
                             <Text
                                 ml={10}
                                 fontSize={10}
+                                color={'#74777F'}
                             >
                                 Nazwę - zawsze możesz zmienić
                             </Text>
@@ -127,18 +123,14 @@ function CreateNewAccount({route, navigation}: NavigationProps) {
                         alignSelf={'center'}
                     >
                         <Button
-                            rounded={'full'}
-                            backgroundColor={'#4459A9'}
+                            variant="primary"
                             onTouchStart={handleStartButton}
+                            _text={{fontSize: 18}}
                         >
-                            <Text
-                                color={'white'}
-                                fontSize={18}
-                            >Zacznij grać!</Text>
+                            Zacznij grać!
                         </Button>
                         <Button
-                            rounded={'full'}
-                            backgroundColor={'#DDE1FF'}
+                            variant="secondary"
                         >
                             {/*TODO: Navigate*/}
                             <Text
@@ -146,8 +138,7 @@ function CreateNewAccount({route, navigation}: NavigationProps) {
                             >Logowanie</Text>
                         </Button>
                         <Button
-                            rounded={'full'}
-                            backgroundColor={'#DDE1FF'}
+                            variant="secondary"
                         >
                             {/*TODO: Navigate*/}
                             <Text
@@ -156,8 +147,17 @@ function CreateNewAccount({route, navigation}: NavigationProps) {
                         </Button>
                     </VStack>
                 </VStack>
-            </SafeAreaView>
-        </Box>
+                <SafeAreaView>
+                    <Box
+                        alignSelf={'flex-end'}
+                    >
+                        <Box>
+                            <SwitchThemeColor/>
+                        </Box>
+                    </Box>
+                </SafeAreaView>
+            </ScrollView>
+        </Surface>
     );
 }
 
