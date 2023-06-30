@@ -3,22 +3,77 @@ import Surface from '../components/Surface/Surface';
 
 export const theme = extendTheme({
     components: {
+        Button: {
+            variants: {
+                primary: (props: any) => ({
+                    _light: {
+                        bg: 'primary.40',
+                        backgroundColor: 'primary.40',
+                        rounded: 'full',
+                        _pressed: {
+                            bg: 'primary.60',
+                            backgroundColor: 'primary.60',
+                        },
+                        _text: {
+                            color: 'primary.90',
+                        }
+                    },
+                    _dark: {
+                        bg: 'primary.80',
+                        backgroundColor: 'primary.80',
+                        rounded: 'full',
+                        _text: {
+                            color: 'primary.20',
+                        }
+                    }
+                }),
+                secondary: (props: any) => ({
+                    _light: {
+                        bg: 'primary.80',
+                        backgroundColor: 'primary.80',
+                        rounded: 'full',
+                        _text: {
+                            color: 'secondary.20',
+                        },
+                        _pressed: {
+                            bg: 'primary.70',
+                            backgroundColor: 'primary.70',
+                        },
+                    },
+                    _dark: {
+                        bg: 'primary.40',
+                        backgroundColor: 'primary.40',
+                        rounded: 'full',
+                        _text: {
+                            color: 'secondary.20',
+                        },
+                        _pressed: {
+                            bg: 'primary.50',
+                            backgroundColor: 'primary.50',
+                        }
+                    }
+                }),
+            },
+        },
         Input: {
             baseStyle: (props) => ({
-                _light:{
+                _light: {
                     backgroundColor: 'primary.90',
                     borderColor: 'primary.90',
                     rounded: '5',
+                    color: 'primary.20',
                     _focus: {
                         borderColor: 'primary.90',
                         color: 'primary.20',
-                    },
+                    }
+                    ,
 
                 },
-                _dark:{
+                _dark: {
                     backgroundColor: 'primary.80',
                     borderColor: 'primary.80',
                     rounded: '5',
+                    color: 'primary.20',
                     _focus: {
                         borderColor: 'primary.80',
                         color: 'primary.20',
