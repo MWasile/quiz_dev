@@ -1,10 +1,13 @@
 import {VStack, ScrollView, Text} from "native-base";
 import LogoBarSmall from "../../LogoBar/LogoBarSmall";
 import ActivityChart from "../ActivityChart/ActivityChart";
+import {NativeStackScreenProps} from "@react-navigation/native-stack";
+import {RootStackParamList} from "../../../App";
 
 
-function Dashboard() {
-    // TODO: Props for navigation
+type NavigationProps = NativeStackScreenProps<RootStackParamList, keyof RootStackParamList>;
+
+function Dashboard({navigation, route}: NavigationProps) {
     return (
         <VStack
             flex={1}>

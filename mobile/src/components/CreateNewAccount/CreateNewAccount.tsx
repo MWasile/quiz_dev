@@ -136,7 +136,7 @@ function CreateNewAccount({route, navigation}: NavigationProps) {
                         </Button>
                         <Button
                             variant="secondary"
-                            onTouchStart={() => handleNavigation('Register')}
+                            onTouchStart={() => handleNavigation('RegisterEmail')}
                         >
 
                             <Text
