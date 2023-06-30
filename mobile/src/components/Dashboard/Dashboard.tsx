@@ -1,4 +1,4 @@
-import {VStack, ScrollView, Text} from "native-base";
+import {VStack, ScrollView, Text, Box} from "native-base";
 import LogoBarSmall from "../../LogoBar/LogoBarSmall";
 import ActivityChart from "../ActivityChart/ActivityChart";
 import {NativeStackScreenProps} from "@react-navigation/native-stack";
@@ -7,6 +7,9 @@ import Separator from "../Separator/Separator";
 import {useEffect, useState} from "react";
 import Surface from "../Surface/Surface";
 import {apiCall} from "../../helpers/api";
+import {CalcPercentageWidth} from "../../helpers/sizing";
+import {LineChart} from "react-native-chart-kit";
+import EloChart from "../EloChart/EloChart";
 
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, keyof RootStackParamList>;
@@ -23,7 +26,7 @@ type UserEloResponse = {
 
 function Dashboard({navigation, route}: NavigationProps) {
     const [userElo, setUserElo] = useState<UserEloResponse | undefined>(undefined);
-
+    const [chartData, setChartData] = useState(undefined);
 
     useEffect(() => {
         (async () => {
@@ -31,9 +34,22 @@ function Dashboard({navigation, route}: NavigationProps) {
         })();
     }, []);
 
+    useEffect(() => {
+        getRankingChartData(userElo);
+    }, [userElo]);
+
     async function getUserEloAPI() {
         const data = await apiCall<UserEloResponse>({endpoint: 'ranking'});
         setUserElo(data);
+    }
+
+    function getRankingChartData(values: UserElo[]) {
+        if (values !== undefined) {
+
+            const datasets = values.lastFive.map((value) => value.elo);
+            setChartData({datasets: [{data: datasets}]});
+        }
+
     }
 
 
@@ -42,14 +58,26 @@ function Dashboard({navigation, route}: NavigationProps) {
             <VStack
                 flex={1}>
                 <LogoBarSmall/>
-                <ScrollView flex={1}
-                            horizontal={false}
-                >
-                    <VStack>
-                        <ActivityChart/>
-                        <Separator titleText='Ranking' separatorStyle={{mt: 2}}/>
-                        <Text>{userElo?.now} XD</Text>
+                <ScrollView flex={1} horizontal={false}>
+                    <ActivityChart/>
+                    <VStack
+                        width={CalcPercentageWidth(80)}
+                        alignSelf={'center'}
+                    >
 
+                        <Separator titleText='Ranking' separatorStyle={{mt: 4}}/>
+                        <Text
+                            fontSize={'xl'}
+                            fontWeight={'bold'}
+                            color={'primary.30'}
+                        >{userElo?.now} ptk. ELO</Text>
+
+                        {chartData !== undefined && (
+                            <EloChart data={chartData}/>
+                        )}
+
+
+                        <Separator titleText='Ranking' separatorStyle={{mt: 4}}/>
 
                         <Text>Dashboard</Text>
                         <Text>Dashboard</Text>
