@@ -3,11 +3,10 @@ import {ImagesAssets} from "../../assets/imageAssets";
 import SwitchThemeColor from "../components/switches/SwitchThemeColor";
 import {SafeAreaView} from "react-native";
 
-function LogoBarBig({flex}: { flex: number }) {
+function LogoBarBig() {
     return (
         <Box
             bg={'#4459A9'}
-            flex={flex}
             justifyContent={'center'}
             borderBottomLeftRadius={30}
             borderBottomRightRadius={30}
@@ -21,8 +20,12 @@ function LogoBarBig({flex}: { flex: number }) {
                 shadowRadius: 16.00,
             }}
         >
-            <Image source={ImagesAssets.logo} alt={"App Logo"} alignSelf={"center"}/>
-            <Text alignSelf={"center"} fontSize={'2xl'} color={'white'}> Dev Quiz </Text>
+            <Box
+                mt={8}
+            >
+                <Image source={ImagesAssets.logo} alt={"App Logo"} alignSelf={"center"}/>
+                <Text alignSelf={"center"} fontSize={'2xl'} color={'white'} pb={10}> Dev Quiz </Text>
+            </Box>
         </Box>
     );
 }

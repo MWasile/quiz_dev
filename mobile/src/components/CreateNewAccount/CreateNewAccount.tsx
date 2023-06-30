@@ -66,11 +66,8 @@ function CreateNewAccount({route, navigation}: NavigationProps) {
     // TODO: Rotation on refresh button? Button animation?
     return (
         <Surface>
-            <LogoBarBig flex={0.5}/>
-            <ScrollView
-                overScrollMode={'always'}
-                flex={1}
-            >
+            <ScrollView>
+                <LogoBarBig/>
                 <VStack>
                     <Box>
                         <Text
@@ -145,17 +142,11 @@ function CreateNewAccount({route, navigation}: NavigationProps) {
                                 fontSize={18}
                             >Rejestracja</Text>
                         </Button>
+                        <Center>
+                            <SwitchThemeColor/>
+                        </Center>
                     </VStack>
                 </VStack>
-                <SafeAreaView>
-                    <Box
-                        alignSelf={'flex-end'}
-                    >
-                        <Box>
-                            <SwitchThemeColor/>
-                        </Box>
-                    </Box>
-                </SafeAreaView>
             </ScrollView>
         </Surface>
     );

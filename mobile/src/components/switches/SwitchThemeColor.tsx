@@ -11,7 +11,6 @@ function SwitchThemeColor() {
     function handleSwitchUserTheme() {
         setIsDarkMode(!isDarkMode);
         toggleColorMode();
-        console.log(colorMode);
     }
 
 
