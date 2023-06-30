@@ -4,9 +4,9 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {NavigationContainer} from "@react-navigation/native";
 import CreateNewAccount from "./src/components/CreateNewAccount/CreateNewAccount";
 import Login from "./src/components/Login/Login";
-import Dashboard from "./src/components/Dashboard/Dashboard";
 import RegisterControl from "./src/components/RegisterControl/RegisterControl";
 import DashboardNavigation from "./src/components/Dashboard/DashboardNavigation";
+import {theme} from "./src/theme/theme";
 
 
 
@@ -22,7 +22,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function App(): JSX.Element {
     return (
-        <NativeBaseProvider>
+        <NativeBaseProvider theme={theme}>
             <NavigationContainer>
                 <Stack.Navigator screenOptions={{headerShown: false}}>
                     <Stack.Screen
