@@ -5,7 +5,7 @@ import Edit from "../../assets/Edit.svg";
 function LogoBarSmall() {
     return (
         <Box
-            bg={"#4459A9"}
+            bg={"primary.40"}
             justifyContent="center"
             borderBottomLeftRadius={30}
             borderBottomRightRadius={30}
@@ -15,8 +15,7 @@ function LogoBarSmall() {
                     <Box pl={6} pr={6}>
                         <Avatar
                             borderWidth={4}
-                            borderColor={"white"}
-                            bg="cyan.500"
+                            borderColor={"tertiary.80"}
                             rounded={'full'}
                             size={'xl'}
                             source={{
