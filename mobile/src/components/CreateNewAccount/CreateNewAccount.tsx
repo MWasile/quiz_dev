@@ -60,12 +60,13 @@ function CreateNewAccount({route, navigation}: NavigationProps) {
         navigation.navigate('Dashboard')
     }
 
+    // TODO: Rotation on refresh button? Button animation?
     return (
         <Box
             flex={1}
             backgroundColor={'#FFFBFF'}
         >
-            <LogoBarBig flex={0.6}/>
+            <LogoBarBig flex={0.7}/>
             <SafeAreaView>
                 <VStack
                 >
@@ -74,42 +75,48 @@ function CreateNewAccount({route, navigation}: NavigationProps) {
                             color={'black'}
                             fontSize={24}
                             mt={18}
-                            ml={4}
+                            ml={8}
                         > Witaj!
                         </Text>
                         <Text
                             fontSize={16}
-                            ml={4}
+                            ml={8}
+
                         > Wpisz swoja nazwe i zacznij grać.</Text>
                         <FormControl>
                             <InputGroup
                                 justifyContent={'center'}
                             >
                                 <Input
-                                    mt={8}
+                                    mt={6}
                                     alignSelf={'center'}
                                     width={CalcPercentageWidth(80)}
-                                    size={'lg'}
+                                    size={'xl'}
                                     backgroundColor={'#DDE1FF'}
                                     borderColor={'#DDE1FF'}
+                                    textAlign={'center'}
+                                    _focus={{
+                                        borderColor: '#DDE1FF',
+                                    }}
+                                    InputRightElement={
+                                    <Box
+                                        alignSelf={'center'}
+                                        position={'absolute'}
+                                        onTouchStart={handleNicknameChange}
+                                        right={14}
+                                    >
+                                        <RefreshName width={25} height={25}/>
+                                    </Box>
+                                    }
                                 >
                                     {nickname}
                                 </Input>
-                                <Box
-                                    alignSelf={'center'}
-                                    position={'absolute'}
-                                    right={CalcPercentageWidth(14)}
-                                    top={10}
-                                    onTouchStart={handleNicknameChange}
-                                >
-                                    <RefreshName width={20} height={20}/>
-                                </Box>
                             </InputGroup>
                             <Text
                                 ml={10}
                                 fontSize={10}
                             >
-                            Nazwę - zawsze możesz zmienić
+                                Nazwę - zawsze możesz zmienić
                             </Text>
                         </FormControl>
                     </Box>

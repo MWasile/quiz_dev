@@ -19,7 +19,7 @@ function LogoBarBig({flex}: { flex?: number }) {
                 shadowRadius: 16.00,
             }}
         >
-            <Image source={ImagesAssets.logo} alignSelf={"center"}/>
+            <Image source={ImagesAssets.logo} alt={"App Logo"} alignSelf={"center"}/>
             <Text alignSelf={"center"} fontSize={'2xl'} color={'white'}> Dev Quiz </Text>
         </Box>
     );
