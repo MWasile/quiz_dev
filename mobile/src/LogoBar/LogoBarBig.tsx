@@ -15,7 +15,7 @@ function LogoBarBig({flex}: { flex?: number }) {
                     width: 0,
                     height: 12,
                 },
-                shadowOpacity: 0.90,
+                shadowOpacity: 0.45,
                 shadowRadius: 16.00,
             }}
         >
