@@ -7,7 +7,8 @@ import Login from "./src/components/Login/Login";
 import RegisterControl from "./src/components/RegisterControl/RegisterControl";
 import DashboardNavigation from "./src/components/Dashboard/DashboardNavigation";
 import {theme} from "./src/theme/theme";
-import Register from "./src/components/Register/Register";
+import RegisterEmail from "./src/components/Register/RegisterEmail";
+import RegisterDetails from "./src/components/Register/RegisterDetails";
 
 
 
@@ -17,7 +18,8 @@ export type RootStackParamList = {
     CreateNewAccount: undefined;
     Login: undefined;
     Dashboard: undefined;
-    Register: undefined;
+    RegisterEmail: undefined;
+    RegisterDetails: { userEmail: string };
 };
 
 
@@ -41,8 +43,12 @@ function App(): JSX.Element {
                         component={Login}
                     />
                     <Stack.Screen
-                        name={'Register'}
-                        component={Register}
+                        name={'RegisterEmail'}
+                        component={RegisterEmail}
+                    />
+                    <Stack.Screen
+                        name={'RegisterDetails'}
+                        component={RegisterDetails}
                     />
                     <Stack.Screen
                         name={'Dashboard'}
