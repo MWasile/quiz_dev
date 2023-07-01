@@ -8,7 +8,6 @@ import {useEffect, useState} from "react";
 import Surface from "../Surface/Surface";
 import {apiCall} from "../../helpers/api";
 import {CalcPercentageWidth} from "../../helpers/sizing";
-import {LineChart} from "react-native-chart-kit";
 import EloChart from "../EloChart/EloChart";
 import BadgesContainer from "../../Badges/BadgesContainer";
 
@@ -60,13 +59,15 @@ function Dashboard({navigation, route}: NavigationProps) {
                 flex={1}>
                 <LogoBarSmall/>
                 <ScrollView flex={1} horizontal={false}>
-                    <ActivityChart/>
+                    <Box mt={4}>
+                        <ActivityChart/>
+                    </Box>
                     <VStack
                         width={CalcPercentageWidth(80)}
                         alignSelf={'center'}
                     >
 
-                        <Separator titleText='Ranking' separatorStyle={{mt: 4}}/>
+                        <Separator titleText='Ranking' separatorStyle={{mt: 4, mb: 4}}/>
                         <Text
                             fontSize={'xl'}
                             fontWeight={'bold'}
@@ -78,9 +79,9 @@ function Dashboard({navigation, route}: NavigationProps) {
                         )}
 
 
-                        <Separator titleText='Badges' separatorStyle={{mt: 4}}/>
+                        <Separator titleText='Badges' separatorStyle={{mt: 4, mb: 4}}/>
                         <BadgesContainer
-                            badgesToDisplay={['silverThree', 'silverTwo', 'silverOne','silverThree', 'silverTwo', 'silverOne']}
+                            badgesToDisplay={['SilverBadgeOne', 'GoldBadgeOne', 'SilverBadgeOne', 'SilverBadgeOne', 'SilverBadgeOne', 'SilverBadgeOne']}
                         />
 
                     </VStack>
