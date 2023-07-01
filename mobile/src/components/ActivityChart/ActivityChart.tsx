@@ -1,4 +1,4 @@
-import {ScrollView, Box} from "native-base";
+import {ScrollView, Box, useToast, Text} from "native-base";
 import {ContributionGraph} from "react-native-chart-kit";
 import {getMonthLabel} from "../../helpers/chart";
 import React, {useEffect, useRef, useState} from "react";
@@ -33,6 +33,7 @@ function ActivityChart() {
     const [chartData, setChartData] = useState<ChartData[]>([]);
     const quarterOffset = [0, 240, 375, 787];
     const [alertInfo, setAlertInfo] = useState<AlertInfo | undefined>(undefined);
+    const toast = useToast();
 
     useEffect(() => {
         (async () => {
@@ -43,12 +44,22 @@ function ActivityChart() {
 
 
     function handleDayPress(value: ChartData) {
-        if (value.count === 0) return;
+        toast.show({
+            placement: 'top',
+            render: () => (
+                <Box
+                    bg="primary.95"
+                    rounded={'sm'}
+                    p={2}
 
-        setAlertInfo({
-            data: value.date,
-            count: value.count,
-            render: true
+                >
+                    <Text
+                        color="primary.20"
+                    >
+                        {value.date} - {value.count} activities
+                    </Text>
+                </Box>
+            )
         });
     }
 
