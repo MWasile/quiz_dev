@@ -1,7 +1,7 @@
-import {Box, Button, Center, Popover, Pressable} from "native-base";
+import {Box, Popover, Pressable} from "native-base";
 import {LineChart} from "react-native-chart-kit";
 import {CalcPercentageWidth} from "../../helpers/sizing";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 
 const chartConfig = {
@@ -10,9 +10,9 @@ const chartConfig = {
     backgroundGradientTo: "#08130D",
     backgroundGradientToOpacity: 2.0,
     color: (opacity = 1) => `rgba(0, 91, 122, ${opacity})`,
-    strokeWidth: 2, // optional, default 3
+    strokeWidth: 2,
     barPercentage: 0.0,
-    useShadowColorFromDataset: false, // optional,
+    useShadowColorFromDataset: false,
     paddingTop: 0,
     paddingRight: 0,
     propsForLabels: {
@@ -22,25 +22,30 @@ const chartConfig = {
         padding: 0
     },
     propsForBackgroundLines: {
-        strokeDasharray: "", // solid background lines with no dashes
         stroke: "#484847",
         strokeWidth: 0
     },
 
 };
 
+interface DataPointClicked {
+    dataset: {
+        data: number[];
+    };
+    getColor: Function;
+    index: number;
+    value: number;
+    x: number;
+    y: number;
+}
 
-function EloChart({ data }: { data: any }) {
+function EloChart({data}: { data: any }) {
     const [showPopover, setShowPopover] = useState(false);
-    const [selectedDataPoint, setSelectedDataPoint] = useState(null);
+    const [selectedDataPoint, setSelectedDataPoint] = useState<DataPointClicked | undefined>(undefined);
 
-    useEffect(() => {
-        // console.log(data);
-    }, [showPopover]);
 
-    const handleDataPointClick = (dataChart) => {
-        console.log(dataChart.index);
-        console.log(data['datasets']);
+    const handleDataPointClick = (dataChart: DataPointClicked) => {
+        console.log(dataChart);
         setSelectedDataPoint(dataChart);
         setShowPopover(true);
     };
@@ -77,10 +82,9 @@ function EloChart({ data }: { data: any }) {
                 }}
             >
                 <Popover.Content maxWidth="56" accessibilityLabel="Point data">
-                    <Popover.Arrow />
+                    <Popover.Arrow/>
                     <Popover.Header>Data point information</Popover.Header>
                     <Popover.Body>
-                        {/* Tutaj możesz wyświetlić szczegółowe informacje o selectedDataPoint */}
                         {selectedDataPoint && `Value: ${selectedDataPoint.value}`}
                     </Popover.Body>
                 </Popover.Content>

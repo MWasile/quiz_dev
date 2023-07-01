@@ -55,7 +55,6 @@ function Dashboard({navigation, route}: NavigationProps) {
             const data: UserElo[] = JSON.parse(dataChart);
             const datasets = data.map((value) => value.elo);
             setChartData({datasets: [{data: datasets}]})
-            console.log(chartData, 'chartData');
         }
 
     }
