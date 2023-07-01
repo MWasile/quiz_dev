@@ -2,11 +2,10 @@ import {VStack, ScrollView, Text, Box} from "native-base";
 import LogoBarSmall from "../../LogoBar/LogoBarSmall";
 import ActivityChart from "../ActivityChart/ActivityChart";
 import {NativeStackScreenProps} from "@react-navigation/native-stack";
-import app, {RootStackParamList} from "../../../App";
+import {RootStackParamList} from "../../../App";
 import Separator from "../Separator/Separator";
 import {useEffect, useState} from "react";
 import Surface from "../Surface/Surface";
-import {apiCall} from "../../helpers/api";
 import {CalcPercentageWidth} from "../../helpers/sizing";
 import EloChart from "../EloChart/EloChart";
 import BadgesContainer from "../../Badges/BadgesContainer";
@@ -20,14 +19,17 @@ type UserElo = {
     date: string;
 };
 
-type UserEloResponse = {
-    lastFive: UserElo[];
-    now: number;
-};
+interface DatasetElement {
+    data: number[];
+}
+
+interface DatasetObject {
+    datasets: DatasetElement[];
+}
 
 function Dashboard({navigation, route}: NavigationProps) {
     const [userElo, setUserElo] = useState<number>(0);
-    const [chartData, setChartData] = useState(undefined);
+    const [chartData, setChartData] = useState<DatasetObject | undefined>(undefined);
 
     useEffect(() => {
         (async () => {
@@ -49,12 +51,11 @@ function Dashboard({navigation, route}: NavigationProps) {
     async function getRankingChartDataFromStorage() {
         const dataChart = await AsyncStorage.getItem('lastFiveGames');
 
-        // TODO: TYPE THIS AND NEED TO BE REFACTORED
-
         if (dataChart !== null) {
-            const data = JSON.parse(dataChart);
+            const data: UserElo[] = JSON.parse(dataChart);
             const datasets = data.map((value) => value.elo);
             setChartData({datasets: [{data: datasets}]})
+            console.log(chartData, 'chartData');
         }
 
     }
