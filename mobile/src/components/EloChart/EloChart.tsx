@@ -81,10 +81,32 @@ function EloChart({data}: { data: any }) {
                 }}
             >
                 <Popover.Content maxWidth="56" accessibilityLabel="Point data">
-                    <Popover.Arrow/>
-                    <Popover.Header>Data point information</Popover.Header>
-                    <Popover.Body>
-                        {selectedDataPoint && `Value: ${selectedDataPoint.value}`}
+                    <Popover.Arrow
+                        bg="#E0E7F0"
+                    />
+                    <Popover.Header
+                        bg="#E0E7F0"
+                        // roundedTop={"2xl"}
+                        _text={{
+                            textAlign: "center",
+                        }}
+                        style={{
+                            borderBottomWidth: 0,
+                            borderColor: "rgba(215, 240, 255, 1)"
+                        }}
+                        p={2}
+                    >
+                        🏆
+                    </Popover.Header>
+                    <Popover.Body
+                        bg="#E0E7F0"
+                        p={2}
+                        shadow={0}
+                        style={{
+                            shadowOpacity: 0,
+                        }}
+                    >
+                        {selectedDataPoint && `Raking Points: ${selectedDataPoint.value}`}
                     </Popover.Body>
                 </Popover.Content>
             </Popover>
