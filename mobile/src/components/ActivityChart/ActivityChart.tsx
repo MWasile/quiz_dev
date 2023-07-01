@@ -56,7 +56,8 @@ function ActivityChart() {
                     <Text
                         color="primary.20"
                     >
-                        {value.date} - {value.count} activities
+                        { value.count >  0 ? (`${value.date } - ${value.count} activities`) : ('0 activities') }
+
                     </Text>
                 </Box>
             )
