@@ -10,6 +10,7 @@ import {apiCall} from "../../helpers/api";
 import {CalcPercentageWidth} from "../../helpers/sizing";
 import EloChart from "../EloChart/EloChart";
 import BadgesContainer from "../../Badges/BadgesContainer";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, keyof RootStackParamList>;
@@ -25,29 +26,35 @@ type UserEloResponse = {
 };
 
 function Dashboard({navigation, route}: NavigationProps) {
-    const [userElo, setUserElo] = useState<UserEloResponse | undefined>(undefined);
+    const [userElo, setUserElo] = useState<number>(0);
     const [chartData, setChartData] = useState(undefined);
 
     useEffect(() => {
         (async () => {
+            await getRankingChartDataFromStorage();
             await getUserEloAPI();
         })();
     }, []);
 
-    useEffect(() => {
-        getRankingChartData(userElo);
-    }, [userElo]);
 
     async function getUserEloAPI() {
-        const data = await apiCall<UserEloResponse>({endpoint: 'ranking'});
-        setUserElo(data);
+        const data = await AsyncStorage.getItem('elo');
+
+        if (data !== null) {
+            const eloData = JSON.parse(data);
+            setUserElo(eloData);
+        }
     }
 
-    function getRankingChartData(values: UserElo[]) {
-        if (values !== undefined) {
+    async function getRankingChartDataFromStorage() {
+        const dataChart = await AsyncStorage.getItem('lastFiveGames');
 
-            const datasets = values.lastFive.map((value) => value.elo);
-            setChartData({datasets: [{data: datasets}]});
+        // TODO: TYPE THIS AND NEED TO BE REFACTORED
+
+        if (dataChart !== null) {
+            const data = JSON.parse(dataChart);
+            const datasets = data.map((value) => value.elo);
+            setChartData({datasets: [{data: datasets}]})
         }
 
     }
@@ -72,7 +79,7 @@ function Dashboard({navigation, route}: NavigationProps) {
                             fontSize={'xl'}
                             fontWeight={'bold'}
                             color={'primary.30'}
-                        >{userElo?.now} ptk. ELO</Text>
+                        >{userElo} ptk. ELO</Text>
 
                         {chartData !== undefined && (
                             <EloChart data={chartData}/>
