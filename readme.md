@@ -47,23 +47,16 @@ For 'DevQuiz' to reach its full potential and transform into the majestic coding
 
 The DevQuiz journey is an exciting one, and we can't wait to share each milestone with our community.
 
-## Used Frameworks and Libraries
-
-Our DevQuiz project uses a variety of modern libraries and frameworks, ensuring a smooth, efficient, and delightful user experience. The following is a list of our primary dependencies:
-
 # Used Frameworks and Libraries
 
-At DevQuiz, we're all about using the right tool for the job. Check out our superstar lineup of frameworks and libraries below. We've rolled out the red carpet for them, right onto this nifty little table.
+At 'DevQuiz', we're all about using the right tool for the job. Check out our superstar lineup of frameworks and libraries below. We've rolled out the red carpet for them, right onto this nifty little table.
 
 | Framework/Library |  Description |
 | :---------------: | :------------ |
 | **TypeScript** | Our safety net, making sure our types are in check and code is error-free. |
 | **React Native** | The robust core of our mobile application development. |
 | **React** | Our trusty sidekick for creating all the user interface components. |
-| **Native Base** | Our secret sauce of ready-to-use components that adds spice to
-
-
- our development speed. |
+| **Native Base** | Our secret sauce of ready-to-use components that adds spice to our development speed. |
 | **React Navigation (native & bottom-tabs)** | The roadmap of our application, handling the twists and turns of in-app navigation. |
 | **Async Storage (React Native)** | Our application's little memory box, storing key-value pairs asynchronously. |
 | **React Native Chart Kit** | The Picasso of our application, painting beautiful charts and graphs for data visualization. |
@@ -73,8 +66,7 @@ At DevQuiz, we're all about using the right tool for the job. Check out our supe
 | **Jest** | The guardian of our code, watching over it with tests day and night. |
 | **Prettier** | Our coding stylist, ensuring our code looks as good as it performs. |
 
-
-Feel the thrill yet? 'Cause we've got the A-listers of the development world on board. Stay tuned for more as we continue to build DevQuiz with style and substance!
+Feel the thrill yet? 'Cause we've got the A-listers of the development world on board. Stay tuned for more as we continue to build 'DevQuiz' with style and substance!
 
 ## Get Your Hands Dirty with DevQuiz
 
