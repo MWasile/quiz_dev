@@ -1,4 +1,3 @@
-import {SafeAreaView} from "react-native";
 import {Box, Button, Center, FormControl, Input, ScrollView, Text, VStack} from "native-base";
 import Surface from "../Surface/Surface";
 import LogoBarBig from "../../LogoBar/LogoBarBig";
@@ -17,7 +16,6 @@ function RegisterEmail({navigation, route}: NavigationProps) {
     function handleRegister() {
         if(!('email' in formErrors) && userEmail !== '') {
             navigation.navigate('RegisterDetails', {userEmail})
-            console.log(userEmail, 'elo');
         }
     }
 

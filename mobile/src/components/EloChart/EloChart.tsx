@@ -45,7 +45,6 @@ function EloChart({data}: { data: any }) {
 
 
     const handleDataPointClick = (dataChart: DataPointClicked) => {
-        console.log(dataChart);
         setSelectedDataPoint(dataChart);
         setShowPopover(true);
     };

@@ -1,17 +1,13 @@
-import {SafeAreaView} from "react-native";
 import {
-    Box,
-    Button,
-    FormControl,
-    Icon,
     Input,
+    Box,
+    FormControl,
+    Button,
     Text,
     VStack,
-    createIcon,
-    Image,
     Center,
     InputGroup,
-    InputRightAddon, Flex, useTheme, ScrollView
+    useTheme, ScrollView
 } from "native-base";
 import {useEffect, useState} from "react";
 import LogoBarBig from "../../LogoBar/LogoBarBig";
@@ -22,20 +18,14 @@ import {CalcPercentageWidth} from "../../helpers/sizing";
 import RefreshName from "../../../assets/RefreshName.svg";
 import SwitchThemeColor from "../switches/SwitchThemeColor";
 import Surface from "../Surface/Surface";
-import {ToggleButtonClick} from "native-base/lib/typescript/components/composites/Typeahead/useTypeahead/types";
 
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, keyof RootStackParamList>;
 
-interface NavParams {
-    screen: keyof RootStackParamList;
-    params?:  { userEmail: string; }
-}
 
 function CreateNewAccount({route, navigation}: NavigationProps) {
     const [randomNicknames, setRandomNicknames] = useState<string[]>([]);
     const [nickname, setNickname] = useState<string>('');
-    const theme = useTheme();
 
     useEffect(() => {
         getRandomNicknamesAPI().catch(

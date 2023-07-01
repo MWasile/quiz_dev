@@ -10,7 +10,6 @@ import {theme} from "./src/theme/theme";
 import RegisterEmail from "./src/components/Register/RegisterEmail";
 import RegisterDetails from "./src/components/Register/RegisterDetails";
 import InitialLoadDataFromApi from "./src/components/InitialLoadDataFromApi/InitialLoadDataFromApi";
-import {InitialDataContextProvider} from "./src/components/InitialDataContext/InitialDataContext";
 
 
 export type RootStackParamList = {

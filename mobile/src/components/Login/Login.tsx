@@ -2,7 +2,6 @@ import {Box, Button, FormControl, Input, ScrollView, Text, VStack} from "native-
 import LogoBarBig from "../../LogoBar/LogoBarBig";
 import {CalcPercentageWidth} from "../../helpers/sizing";
 import {useState} from "react";
-import SwitchThemeColor from "../switches/SwitchThemeColor";
 import Surface from "../Surface/Surface";
 
 

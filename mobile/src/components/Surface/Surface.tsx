@@ -1,6 +1,5 @@
-import {Box, Flex, Text, useColorModeValue, useTheme} from "native-base";
-import React, {useEffect} from "react";
-import {SafeAreaView} from "react-native";
+import {Box, useColorModeValue} from "native-base";
+import React from "react";
 
 
 type SurfaceProps = {
@@ -12,12 +11,9 @@ function Surface({children}: SurfaceProps) {
 
 
     return (
-                <Box
-                    backgroundColor={colorScheme}
-                    flex={1}
-                >
-                    {children}
-                </Box>
+        <Box backgroundColor={colorScheme} flex={1}>
+            {children}
+        </Box>
     );
 }
 

@@ -1,4 +1,4 @@
-import {Box, Text, useColorMode} from "native-base";
+import {Box, useColorMode} from "native-base";
 import {CalcPercentageWidth} from "../../helpers/sizing";
 import Sun from '../../../assets/Sun.svg';
 import Moon from '../../../assets/Moon.svg';

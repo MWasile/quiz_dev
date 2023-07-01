@@ -33,6 +33,7 @@ function RegisterControl({route, navigation}: NavigationProps) {
     }, [profileData]);
 
     return (
+        // @ts-ignore
         profileData ? <Dashboard navigation={navigation} route={route}/> : <CreateNewAccount navigation={navigation} route={route}/>
     );
 }

@@ -10,9 +10,12 @@ import {CalcPercentageWidth} from "../../helpers/sizing";
 import EloChart from "../EloChart/EloChart";
 import BadgesContainer from "../../Badges/BadgesContainer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import {BottomTabScreenProps} from "@react-navigation/bottom-tabs";
+import {TabNavigatorParamList} from "./DashboardNavigation";
 
 
-type NavigationProps = NativeStackScreenProps<RootStackParamList, keyof RootStackParamList>;
+// type NavigationProps = NativeStackScreenProps<RootStackParamList, keyof RootStackParamList>;
+type DashboardProps = NativeStackScreenProps<RootStackParamList, 'Dashboard'> & BottomTabScreenProps<TabNavigatorParamList, 'Home'>;
 
 type UserElo = {
     elo: number;
@@ -27,7 +30,7 @@ interface DatasetObject {
     datasets: DatasetElement[];
 }
 
-function Dashboard({navigation, route}: NavigationProps) {
+function Dashboard() {
     const [userElo, setUserElo] = useState<number>(0);
     const [chartData, setChartData] = useState<DatasetObject | undefined>(undefined);
 
