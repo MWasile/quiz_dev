@@ -2,8 +2,8 @@ import {ScrollView, Box} from "native-base";
 import {ContributionGraph} from "react-native-chart-kit";
 import {getMonthLabel} from "../../helpers/chart";
 import React, {useEffect, useRef, useState} from "react";
-import {apiCall} from "../../helpers/api";
 import ChartInfoAlert from "./ChartInfoAlert";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 const chartConfig = {
@@ -54,8 +54,9 @@ function ActivityChart() {
 
     async function getChartData() {
         // TODO: abort controller
-        const data = await apiCall<ChartData[]>({endpoint: 'activity'});
-        setChartData(data);
+        const data = await AsyncStorage.getItem('activity');
+        const parsedData: ChartData[] = JSON.parse(data || '[]');
+        setChartData(parsedData);
     }
 
     function getCurrentQuarter() {
@@ -63,7 +64,8 @@ function ActivityChart() {
         const currentDate = new Date();
         const currentMonth = currentDate.getMonth() + 1;
         return Math.ceil(currentMonth / 3) - 1;
-    };
+    }
+
     const scrollToCurrentQuarter = () => {
         const currentQuarter = getCurrentQuarter();
         const scrollOffset = quarterOffset[currentQuarter];
