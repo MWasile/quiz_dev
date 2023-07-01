@@ -18,7 +18,7 @@ So come and join us in this exciting journey, where coding and quizzing blend to
 
 ## Project Status
 
-![Bez tytułu (421×864 px) (418×859 px)](https://github.com/MWasile/quiz_dev/assets/86410202/fcaf57ed-248c-4932-afae-731c36780008)
+![Bez tytułu (421×864 px) (418×859 px)](https://github.com/MWasile/quiz_dev/assets/86410202/0e7e0da8-46c3-4089-8aec-07b8ad38b995)
 
 
 As of the latest update, our 'DevQuiz' project is approximately 40% complete in terms of mobile application UI development. We've been tirelessly piecing together an attractive and user-friendly interface that encapsulates our vision of merging knowledge acquisition with a sense of fun and competition.
