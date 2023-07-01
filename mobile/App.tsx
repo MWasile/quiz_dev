@@ -9,11 +9,12 @@ import DashboardNavigation from "./src/components/Dashboard/DashboardNavigation"
 import {theme} from "./src/theme/theme";
 import RegisterEmail from "./src/components/Register/RegisterEmail";
 import RegisterDetails from "./src/components/Register/RegisterDetails";
-
-
+import InitialLoadDataFromApi from "./src/components/InitialLoadDataFromApi/InitialLoadDataFromApi";
+import {InitialDataContextProvider} from "./src/components/InitialDataContext/InitialDataContext";
 
 
 export type RootStackParamList = {
+    InitialLoadDataFromApi: undefined;
     RegisterControl: undefined;
     CreateNewAccount: undefined;
     Login: undefined;
@@ -30,6 +31,10 @@ function App(): JSX.Element {
         <NativeBaseProvider theme={theme}>
             <NavigationContainer>
                 <Stack.Navigator screenOptions={{headerShown: false}}>
+                    <Stack.Screen
+                        name="InitialLoadDataFromApi"
+                        component={InitialLoadDataFromApi}
+                    />
                     <Stack.Screen
                         name="RegisterControl"
                         component={RegisterControl}
