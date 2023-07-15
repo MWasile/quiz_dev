@@ -6,6 +6,13 @@ This is not just your typical quiz app; this is a trivia battleground, designed 
 
 Quiz Dev is more than a game, it's a learning tool that lets you strengthen and broaden your programming knowledge. The topics? Only the finest selection of programming-related curiosities, of course! 
 
+## Authors
+
+- [Maciej Wasilewski](https://github.com/MWasile) - Frontend Developer in React Native
+- [Sławomir Czech](https://github.com/SlawCzech) - Backend Developer in Django. You can find his backend project repository with the full commit history [here.](https://github.com/SlawCzech/dev_me_up)
+
+
+
 ## Main Features
 
 - **Global Competitions:** Step into our global arena where programmers from around the world gather to test their knowledge. Here, borders blur, and only your skills matter.
