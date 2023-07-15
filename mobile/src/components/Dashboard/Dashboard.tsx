@@ -91,7 +91,7 @@ function Dashboard() {
 
                         <Separator titleText='Badges' separatorStyle={{mt: 4, mb: 4}}/>
                         <BadgesContainer
-                            badgesToDisplay={['SilverBadgeOne', 'GoldBadgeOne', 'SilverBadgeOne', 'SilverBadgeOne', 'SilverBadgeOne', 'SilverBadgeOne']}
+                            badgesToDisplay={['GoldBadgeThree', 'GoldBadgeOne', 'SilverBadgeTwo', 'SilverBadgeThree', 'SilverBadgeOne', 'GoldBadgeThree']}
                         />
 
                     </VStack>
